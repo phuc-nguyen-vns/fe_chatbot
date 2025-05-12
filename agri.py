@@ -1,6 +1,6 @@
 import streamlit as st
 import requests
-import sys, os
+import sys, os, json
 from pathlib import Path
 
 # --- Config ---
@@ -51,7 +51,7 @@ if query:
         answer_res = requests.post(ANSWER_API, json={"query": query, "history": st.session_state.history})
         answer_res.raise_for_status()
         response_json = answer_res.json()
-        answer = response_json.get("answer", "❌ No answer provided.")
+        answer = response_json.get("answer", "❌ No answer provided.").replace("\\n", "\n")
         metadata = response_json.get("metadata", {})
     except Exception as e:
         answer = f"❌ Error: {e}"
@@ -62,7 +62,7 @@ if query:
     try:
         suggest_payload = {
             "query": query,
-            "search_type": "hybrid_search",
+            "search_type": "hybrid",
             "semantic_ratio": 0.5,
             "embedder": "embedder",
             "top_k": 3,
@@ -71,7 +71,7 @@ if query:
         }
         suggest_res = requests.post(SUGGEST_API, json=suggest_payload)
         suggest_res.raise_for_status()
-        suggestions = suggest_res.json().get("suggestions", [])
+        suggestions = json.loads(suggest_res.json()).get("suggestions", [])
     except Exception:
         suggestions = []
 
