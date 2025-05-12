@@ -1,0 +1,90 @@
+# ===============================
+# Virtual Environment & Dependency Files
+.venv/
+.env
+
+# ===============================
+# macOS System Files
+.DS_Store
+
+# ===============================
+# Python Cache Files
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# ===============================
+# VS Code Settings (Optional: Remove if project-specific settings are important)
+.vscode/
+
+# ===============================
+# Compiled & Temporary Files
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# ===============================
+# OS/Editor Specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ===============================
+# Package/Distribution Artifacts
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# ===============================
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# ===============================
+# Test Coverage Reports
+htmlcov/
+.coverage
+.tox/
+.nox/
+.cache/
+
+# ===============================
+# MyPy & Type Checking
+.mypy_cache/
+.dmypy.json
+
+# ===============================
+# Profiling Data
+.prof
+
+# ===============================
+# Docker
+.dockerignore
+
+# ===============================
+# IDEs & Editors
+.idea/
+*.iml
+*.sublime-workspace
+*.sublime-project
+
+# ===============================
+# Node.js (if applicable)
+node_modules/
+npm-debug.log
+
+# ===============================
+# Data Files
+*.csv  # Ignore all CSV data files
+*.json  # (Optional) Ignore all JSON files if they are also data outputs
+*.xlsx  # (Optional) Ignore Excel files
+
+# ===============================
+# Environments for CI/CD
+.env.local
+.env.development
+.env.test
+.env.production
